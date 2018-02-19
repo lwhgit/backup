@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<title>Untitled</title>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+		<link href="css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+		<link href="css/paint.css?ver=1" type="text/css" rel="stylesheet"/>
+	</head>
+	
+	<body>
+		<nav class="white">
+			<a href="#" data-activates="mobile-demo" class="button-collapse" style="margin: 0; padding: 0 18px;"><i class="material-icons" style="color: #888888;">menu</i></a>
+			<ul class="side-nav" id="mobile-demo">
+				<div style="height: 100px;">
+					
+				</div>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="codehighlighter.html">Code Highlighter</a></li>
+				<li><a href="javascript: ;">Paint</a></li>
+				<li><a href="clock.html">Clock</a></li>
+			</ul>
+			<div class="nav-wrapper container">
+				<a class="brand-logo black-text" href="javascript: ;" style="font-weight: 400;">Untitled</a>
+				<div class="right" style="width: auto; height: 100%;">
+					<a class="black-text" href="https://github.com/lwhgit/lwhgit.github.io" target="_blank" style="height: 64px; line-height: 64px; display: block;">
+						<span class="black-text" style="height: 32px; line-height: 64px; display: block; float: left;">Github</span>
+						<img src="res/github.png" style="width: 32px; height: 32px; margin-top: 16px; margin-left: 8px;"></img>
+					</a>
+				</div>
+			</div>
+		</nav>
+		
+		<nav class="nav-wrapper teal lighten-3 hide-on-med-and-down">
+			<div class="container">
+				
+				<ul class="left hide-on-med-and-down center">
+				
+					<li><a href="index.html">Home</a></li>
+					<li><a href="codehighlighter.html">Code Highlighter</a></li>
+					<li><a href="javascript: ;">Paint</a></li>
+					<li><a href="clock.html">Clock</a></li>
+				</ul>
+			</div>
+		</nav>
+		
+		
+		<div style="width: 100%; height: calc(100% - 131px); margin-top: 2px;">
+		
+			<div id="canvas_wrapper" class="container" style="height: 100%; margin-top: 2px; margin-bottom: 1px; background-color: #EEEEEE; overflow: hidden; box-shadow: 0px 0px 5px 1px inset;">
+		
+				<canvas id="canvas" width="500" height="500" style="margin: 3px; cursor: crosshair; background-color: #FFFFFF;"></canvas>
+		
+			</div>
+		
+		</div>
+		
+	</body>
+
+
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="js/jcanvas.min.js"></script>
+	<script src="js/jquery.particleground.min.js"></script>
+	<script src="js/materialize.min.js"></script>
+	<script src="js/paint.js"></script>
+</html>

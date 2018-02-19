@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<html>
+
+	<style>
+		
+		html, body {
+			width: 100%;
+			height: 100%;
+			margin: 0;
+		}
+		
+		#movable {
+			width: 50px;
+			height: 50px;
+			border-radius: 25px;
+			background-color: #000;
+			position: fixed;
+			left: 0px;
+			top: calc(50% - 25px);
+		}
+		
+		#fixed {
+			width: 50px;
+			height: 50px;
+			border-radius: 25px;
+			background-color: #000;
+			position: fixed;
+			left: calc(100% - 65px);
+			top: calc(50% - 25px);
+		}
+		
+		.btn {
+			width: 150px;
+			height: 50px;
+			background-color: #eee;
+			position: fixed;
+			cursor: pointer;
+			text-align: center;
+			line-height: 50px;
+			font-weight: 600;
+			left: calc(100% - 160px);
+		}
+		
+		.btn:active {
+			background-color: #aaa;
+		}
+		
+		#startBtn {
+			top: 10px;
+		}
+		
+		#stopBtn {
+			top: 70px;
+		}
+		
+		#pauseBtn {
+			top: 130px;
+		}
+		
+	</style>
+
+	<body>
+	
+		<div id="movable"></div>
+		<div id="fixed"></div>
+		<div id="startBtn" class="btn" >START</div>
+		<div id="stopBtn" class="btn" >STOP</div>
+		<div id="pauseBtn" class="btn" >PAUSE</div>
+	
+	</body>
+
+	
+	<script id="asdf" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script>
+		
+		var obj = $("#movable");
+		var startBtn = $("#startBtn");
+		var stopBtn = $("#stopBtn");
+		var pauseBtn = $("#pauseBtn");
+		
+		var pos = 0;
+		var interval = 0;
+		var pause = false;
+		
+		startBtn.on("click", start);
+		stopBtn.on("click", stop);
+		pauseBtn.on("click", function() {
+			pause = !pause;
+			
+			if (pause) {
+				pauseBtn.text("RESUME");
+			} else {
+				pauseBtn.text("PAUSE");
+			}
+		});
+		
+		function start() {
+			stop();
+			interval = setInterval(function() {
+				obj.css("left", pos + "px");
+				if (!pause)
+					pos ++;
+			}, 10);
+		}
+		
+		function stop() {
+			if (interval == 0) return;
+			
+			clearInterval(interval);
+			pos = 0;
+			obj.css("left", pos + "px");
+			pause = false;
+			pauseBtn.text("PAUSE");
+		}
+		
+	</script>
+</html>

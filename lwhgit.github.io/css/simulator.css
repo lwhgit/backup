@@ -1,0 +1,114 @@
+.input-field {
+	margin: 0px;
+}
+
+label {
+	color: #9e9e9e;
+	font-size: 1rem;
+	font-family: normal;
+}
+
+.valueView {
+	font-size: 20px;
+	float: right;
+}
+
+.blockedLabel {
+	color: #000000;
+	display: block;
+	float: left;
+}
+
+#velocityForm {
+	width: 100%;
+	height: calc(100% - 64px);
+}
+
+#velocityForm > #inputForm {
+	width: 300px;
+	height: 100%;
+	padding: 4px 4px 4px 4px;
+	background-color: #FFFFFF;
+	box-shadow: 1px 0px 5px 0px;
+	float: left;
+}
+
+#velocityForm > #inputForm > .infoValueView {
+	width: 90px;
+	height: 20px;
+	line-height: 20px;
+}
+
+#velocityForm > #inputForm #actionCommandForm {
+	margin-bottom: 16px;
+}
+
+#velocityForm > #simulatorForm {
+	width: calc(100% - 300px);
+	height: 100%;
+	float: left;
+}
+
+#velocityForm > #simulatorForm > #rigidbody {
+	width: 50px;
+	height: 50px;
+	position: relative;
+	top: calc(50% - 25px);
+	left: 10px;
+	float: inherit;
+	background-color: #000000;
+}
+
+#velocityForm > #simulatorForm > #infoViewForm {
+	width: 260px;
+	height: 300px;
+	padding: 10px;
+	position: fixed;
+	top: 74px;
+	right: 10px;
+	float: right;
+	border-radius: 10px;
+	background-color: #DDDDDD;
+}
+
+#velocityForm > #simulatorForm > #infoViewForm > .infoNameView {
+	width: 150px;
+	height: 20px;
+	line-height: 20px;
+}
+
+#railgunForm {
+  width: 1536px;
+  height: calc(100% - 64px);
+	padding-top: 64px;
+  margin: 0 auto;
+}
+
+#railgunForm > #inputForm {
+	width: 320px;
+	height: 100%;
+}
+
+#railgunForm .inputLabel {
+	width: 64px;
+	height: 64px;
+	text-align: left;
+	font-size: 24px;
+	font-family: -webkit-pictograph;
+	font-style: italic;
+	line-height: 54px;
+	color: #000000;
+	display: block;
+	float: left;
+}
+
+.railgunInputBox {
+	width: 1536px;
+	height: 64px;
+	float: left;
+}
+
+.railgunInputWrapper {
+	width: 256px;
+	float: left;
+}

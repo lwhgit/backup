@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<title>Simulator</title>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+		<link href="css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+		<link href="css/base.css" type="text/css" rel="stylesheet"/>
+		<link href="css/simulator.css" type="text/css" rel="stylesheet"/>
+	</head>
+
+	<body>
+
+		<nav id="topBarNav">
+			<div class="nav-wrapper blue lighten">
+				<div id="topBar">
+					<ul id="topBarListWrapper" class="left hide-on-med-and-down">
+						<li>
+							<a href="simulator.html?type=0">Velocity</a>
+						</li>
+						<li>
+							<a href="simulator.html?type=1">RailGun</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<div id="velocityForm">
+			<div id="inputForm">
+
+				<div id="actionCommandForm">
+					<a id="startBtn" class="waves-effect blue waves-light btn">Start</a>
+					<a id="stopBtn" class="waves-effect blue waves-light btn">Stop</a>
+				</div>
+
+				<div class="input-field">
+          <input id="distanceInput" type="number" class="validate" value="0.609">
+          <label class="active" for="distanceInput">Distance</label>
+        </div>
+
+				<div id="velocityInputBox">
+					<label for="">Velocity</label>
+					<label id="velocityValueView" class="valueView" for="">30 m/s</label>
+					<p class="range-field">
+						<input id="velocityInput" class="c_input" type="range" min="1" max="300" value="30" />
+					</p>
+				</div>
+
+				<div id="sizeInputBox">
+					<label for="">Size</label>
+					<label id="sizeValueView" class="valueView" for="">50 px</label>
+					<p class="range-field">
+						<input id="sizeInput" type="range" min="1" max="300" value="50" />
+					</p>
+				</div>
+			</div>
+
+			<div id="simulatorForm">
+					<div id="rigidbody"></div>
+
+					<div id="infoViewForm">
+						<label class="blockedLabel infoNameView">Current Position</label>
+						<label id="currentPositionView" class="blockedLabel infoValueView">0.00 m</label>
+						<label class="blockedLabel infoNameView">Measured Velocity</label>
+						<label id="measuredVelocityView" class="blockedLabel infoValueView">0.00 m/s</label>
+						<label class="blockedLabel infoNameView">Time</label>
+						<label id="timeView" class="blockedLabel infoValueView">0.00 sec</label>
+					</div>
+			</div>
+		</div>
+
+		<div id="railgunForm">
+
+			<div id="inputForm">
+				<div id="voltageInputForm" class="railgunInputBox">
+					<label class="inputLabel">V =</label>
+
+					<div id="voltageInputWrapper" class="input-field railgunInputWrapper">
+		        <input id="voltageInput" type="number" class="validate">
+		        <label for="voltageInput">Voltage</label>
+		      </div>
+				</div>
+
+				<div id="resistanceInputForm" class="railgunInputBox">
+					<label class="inputLabel">R =</label>
+
+					<div id="resistanceInputWrapper" class="input-field railgunInputWrapper">
+		        <input id="resistanceInput" type="number" class="validate">
+		        <label for="resistanceInput">Resistance</label>
+		      </div>
+				</div>
+
+				<div id="magInputForm" class="railgunInputBox">
+					<label class="inputLabel">B =</label>
+
+					<div id="magInputWrapper" class="input-field railgunInputWrapper">
+		        <input id="magInput" type="number" class="validate">
+		        <label for="magInput">Magnetic Field</label>
+		      </div>
+				</div>
+
+				<div id="massInputForm" class="railgunInputBox">
+					<label class="inputLabel">m =</label>
+
+					<div id="massInputWrapper" class="input-field railgunInputWrapper">
+		        <input id="massInput" type="number" class="validate">
+		        <label for="massInput">Mass</label>
+		      </div>
+				</div>
+
+				<div id="displacementInputForm" class="railgunInputBox">
+					<label class="inputLabel">s =</label>
+
+					<div id="displacementInputWrapper" class="input-field railgunInputWrapper">
+		        <input id="displacementInput" type="number" class="validate">
+		        <label for="displacementInput">Displacement</label>
+		      </div>
+				</div>
+
+				<div id="intensityInputForm" class="railgunInputBox">
+					<label class="inputLabel">I =</label>
+
+					<div style="width: 128px; height: 50px; float: left;">
+						<label class="blockedLabel inputLabel" style="width: 24px; line-height: 24px;">V<label>
+						<label style="width: 24px; height: 2px; background-color: #000000; display: block;"><label>
+						<label class="blockedLabel inputLabel" style="width: 24px; line-height: 24px;">R<label>
+					</div>
+
+					<div style="width: 24px; height: 64px; float: left;">
+						<label class="blockedLabel inputLabel" style="width: 24px; line-height: 54px; float: left;">=<label>
+					</div>
+
+					<div style="width: 128px; height: 64px; float: left;">
+						<label id="intensityValueView" class="blockedLabel inputLabel" style="width: 128px; line-height: 54px; float: left;">0<label>
+					</div>
+				</div>
+
+				<div id="forceInputForm" class="railgunInputBox">
+					<label class="inputLabel">F =</label>
+
+					<div style="width: 128px; height: 50px; float: left;">
+						<label class="blockedLabel inputLabel" style="width: 128px; line-height: 54px; float: left;">B · I<label>
+					</div>
+
+					<div style="width: 24px; height: 64px; float: left;">
+						<label class="blockedLabel inputLabel" style="width: 24px; line-height: 54px; float: left;">=<label>
+					</div>
+
+					<div style="width: 128px; height: 64px; float: left;">
+						<label id="forceValueView" class="blockedLabel inputLabel" style="width: 128px; line-height: 54px; float: left;">0<label>
+					</div>
+				</div>
+
+				<div id="accInputForm" class="railgunInputBox">
+					<label class="inputLabel">a =</label>
+
+					<div style="width: 128px; height: 50px; float: left;">
+						<label class="blockedLabel inputLabel" style="width: 24px; line-height: 24px;">F<label>
+						<label style="width: 24px; height: 2px; background-color: #000000; display: block;"><label>
+						<label class="blockedLabel inputLabel" style="width: 24px; line-height: 24px;">m<label>
+					</div>
+
+					<div style="width: 24px; height: 64px; float: left;">
+						<label class="blockedLabel inputLabel" style="width: 24px; line-height: 54px; float: left;">=<label>
+					</div>
+
+					<div style="width: 128px; height: 64px; float: left;">
+						<label id="accValueView" class="blockedLabel inputLabel" style="width: 128px; line-height: 54px; float: left;">0<label>
+					</div>
+				</div>
+
+				<div id="vInputForm" class="railgunInputBox">
+					<label class="inputLabel">v =</label>
+
+					<div style="width: 128px; height: 50px; float: left;">
+						<label class="blockedLabel inputLabel" style="width: 14px; line-height: 60px;">&radic;</label>
+						
+						<label class="blockedLabel inputLabel" style="width: 114px; line-height: 54px;">(2 · a · s)</label>
+					</div>
+
+					<div style="width: 24px; height: 64px; float: left;">
+						<label class="blockedLabel inputLabel" style="width: 24px; line-height: 54px; float: left;">=<label>
+					</div>
+
+					<div style="width: 128px; height: 64px; float: left;">
+						<label id="vValueView" class="blockedLabel inputLabel" style="width: 128px; line-height: 54px; float: left;">0<label>
+					</div>
+				</div>
+
+			</div>
+
+			<div id="">
+
+			</div>
+		</div>
+	</body>
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js/Materialize.min.js"></script>
+	<script type="text/javascript" src="js/simulator.js"> </script>
+	<script type="text/javascript">
+		var data = location.href.substring(location.href.lastIndexOf("?") + 1, location.href.length).split("&");
+		for (var i in data) {
+			console.log(i);
+			var key = data[i].split("=")[0];
+			var value = parseInt(data[i].split("=")[1]);
+			if (key == "type") {
+				show(value);
+				console.log(value);
+			}
+		}
+	</script>
+</html>

@@ -1,0 +1,74 @@
+<div id='kkutu_helper' class='dialog dialog-front' style='width: 300px; height: 300px; left: 287px; top: 328.5px; display: none;'>
+	<div class='dialog-head'>
+		<div id='kkutu_helper_title' class='dialog-title' style='width: calc(100% - 20px);'>Kkutu Helper</div>
+		<div id='kkutu_helper_closeBtn' class='closeBtn'></div>
+	</div>
+	<div style='width: 300px; height: 280px; float: left;'>
+		<div class='dialog-body' style='font-size: 13px;'>
+			<div id='kkutu_helper_tab' style='width: 80%; height: 30px; float: left;'>
+				<button id='kkutu_helper_tab_kkutu' class='helper_tab' style='width: 50%; background-color: #EAEAEA; float: left; box-sizing: border-box;' value='kkutu'>끝말잇기</button>
+				<button id='kkutu_helper_tab_typing' class='helper_tab' style='width: 50%; background-color: #DDDDDD; float: left; box-sizing: border-box;' value='typing'>타자대결</button>
+			</div>
+			<button id='kkutu_helper_tab_setting' style='width: 15%; background-color: #EAEAEA; float: left; box-sizing: border-box; float: right;'>설정</button>
+		</div>
+		<div class='dialog-bar'>
+			<div style='width: 100%; height: 30px;'>
+				<div style='width: 50%; height: 15px; margin-top: 15px; font-size: 15px;line-height: 15px; color: black; float: left;'>단어 입력 속도</div>
+				<div style='width: 25%; height: 15px; margin-top: 15px; padding-left: 15px; font-size: 15px; line-height: 15px; border-left: 1px solid gray; color: black; float: left; box-sizing: border-box;'>절대 속도</div>
+				<input id='kkutu_helper_absDelay' type='checkbox' style='width: 20%; margin-top: 15px; float: left; box-sizing: border-box;'> 
+			</div>
+			<div style='width: 100%; height: 33px;'>
+				<input id='kkutu_helper_delay' type='range' min='0' max='1000' value='0' style='width: 70%; height: auto; float: left;'>  
+				<div id='kkutu_helper_delay_view' style='width: 20%; height: 100%; text-align: center; line-height: 33px; font-size: 13px; color: black; float: left;'>0 ms</div>
+			</div>
+		</div>
+		<div class='dialog-bar tail-button' style='width: 100%; height: 60px;'>
+			<div style='width: 102px; height: 100%; float: right;'>
+				<div style='width: 102px; text-align: center;'>Active</div>
+				<button id='kkutu_helper_activeBtn' style='background-color: #EDEDED;'>OFF</button> 
+			</div>
+			<div class='product-title' style='width: 190px; height: 90%;'>
+				<div style='width: 100px; font-size: 12px; float: left;'>내 턴?</div>
+				<div style='width: 15px; font-size: 12px; float: left;'>:</div>
+				<div id='kkutu_helper_myTurnView' style='width: 70px; font-size: 12px; float: left;'>false</div>
+				<div style='width: 100px; font-size: 12px; float: left;'>시작 단어</div>
+				<div style='width: 15px; font-size: 12px; float: left;'>:</div>
+				<div id='kkutu_helper_startWordView' style='width: 70px; font-size: 12px; float: left;'>undefined</div>
+				<div style='width: 100px; font-size: 12px; float: left;'>찾은 단어 수</div>
+				<div style='width: 15px; font-size: 12px; float: left;'>:</div>
+				<div id='kkutu_helper_foundWordCountView' style='width: 70px; font-size: 12px; float: left;'>0</div>
+			</div>
+		</div>
+		<div class='dialog-bar' style='width: 100%; height: auto;'>
+			<h5 class='product-title'><i class='fa fa-comment'></i>채팅</h5>
+		</div>
+		<div class='dialog-bar tail-button' style='margin: 2px 0;'>
+			<button id='kkutu_helper_onlyFocusBtn' style='background-color: #EDEDED;'>OFF</button>
+			<span style='display: block; line-height: 32px; font-size: 13px;'>기존 채팅창에 포커스 가지 않기</span>
+		</div>
+		<div class='dialog-bar tail-button'>
+			<div style='width: 100%;'>
+				<input id='kkutu_helper_talk' style='width: 230px; height: 14px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);'>
+				<button id='kkutu_helper_chatBtn' style='width: 41px; height: 14px; border-top-left-radius: 0px; border-bottom-left-radius: 0px;'>전송</button>
+			</div>
+		</div>
+	</div>
+	
+	<div id='kkutu_helper_word' style='width: 300px; height: 280px; float: left; display: none;'>
+		<div class='dialog-body' style='font-size: 13px;'>
+			<div id='kkutu_helper_word_tab' style='width: 70%; height: 30px; float: left; text-align: center; line-height: 30px;'>
+				끝 단어 설정
+			</div>
+			<button id='kkutu_helper_word_activeBtn' style='width: 30%; background-color: #EAEAEA; float: left; box-sizing: border-box; float: right;'>Active</button>
+		</div>
+		<div class='dialog-bar' style='height: 240px; overflow-y: scroll;'>
+			<div id='kkutu_helper_word_list' class='dialog-bar' style='height: auto;'>
+				<!--<div id='kkutu_helper_word_0' style='width: 100%; height: 30px;'>
+					<input id='kkutu_helper_word_input_0' style='width: 230px; height: 14px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); float: left;'> 
+					<button id='kkutu_helper_word_delete_0' style='width: 29px; height: 14px; border-top-left-radius: 0px; border-bottom-left-radius: 0px; float: left;'>X</button>
+				</div>-->
+			</div>
+			<button id='kkutu_helper_word_addBtn' style='width: calc(100% - 12px); height: 14px;'>+</button>
+		</div>
+	</div>
+</div>

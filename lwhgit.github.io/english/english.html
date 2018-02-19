@@ -1,0 +1,231 @@
+﻿<!DOCTYPE html>
+<html>
+
+    <head>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <link href="css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    </head>
+
+    <style>
+
+        * {
+            margin: 0;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+        }
+
+        #topBar {
+            width: 100%;
+        }
+
+        #form {
+            width: 100%;
+            height: calc(100% - 64px);
+        }
+
+        
+
+        #lyricForm {
+            width: 100%;
+            height: 200px;
+            position: fixed;
+            top: 74px;
+            text-align: center;
+            float: left;
+            overflow: hidden;
+        }
+
+        .lyricLine {
+            width: 100%;
+            height: 25px;
+            text-align: center;
+            line-height: 25px;
+            font-size: 25px;
+            font-weight: 400;
+            font-family: Roboto;
+        }
+
+        #player {
+            margin-top: 225px;
+            float: left;
+        }
+
+        #controlForm {
+            height: 300px;
+            float: right;
+            padding-left: 32px;
+            padding-right: 32px;
+            position: fixed;
+            top: 84px;
+            z-index: 99;
+        }
+
+        #controlTitle {
+            width: 100%;
+            height: 20px;
+            background-color: rgba(230, 230, 256, 0.8);
+            cursor: move;
+        }
+
+        #stateForm {
+
+        }
+
+    </style>
+
+    <body>
+
+        <nav id="topBarNav">
+            <div class="nav-wrapper blue lighten">
+                <div id="topBar">
+                    <ul id="topBarListWrapper" class="left hide-on-med-and-down">
+                        <li>
+                            <a>영어 B 발표</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div id="form">
+
+            <div id="player">
+            </div>
+
+            <div id="controlForm">
+
+                <div id="controlTitle">
+
+                </div>
+
+                <div id="stateForm">
+
+                    <a href="javascript: play1();" class="btn-flat waves-effect waves-light btn stateControlBtn"><i class="material-icons">play_arrow</i></a>
+                    <a href="javascript: replay();" class="btn-flat waves-effect waves-light btn stateControlBtn"><i class="material-icons">replay</i></a>
+                    <a href="javascript: showLyric();"class="btn-flat waves-effect waves-light btn stateControlBtn"><i class="material-icons">visibility</i></a>
+                    <a href="javascript: play2();" class="btn-flat waves-effect waves-light btn stateControlBtn"><i class="material-icons">play_arrow</i></a>
+
+                </div>
+
+            </div>
+
+            <div id="lyricForm">
+
+                <div class="lyricLine"></div>
+                <div class="lyricLine"></div>
+                <div class="lyricLine"></div>
+                <div class="lyricLine"></div>
+                <div class="lyricLine"></div>
+
+            </div>
+            <div>
+                <div style="width: 100%; height: 175px; position: fixed; top: 74px;">
+                    <div style="width: 100%; height: 25px; background-color: rgba(255, 255, 255, 0.9);"></div>
+                    <div style="width: 100%; height: 25px; background-color: rgba(255, 255, 255, 0.7);"></div>
+                    <div style="width: 100%; height: 25px; background-color: rgba(255, 255, 255, 0.5);"></div>
+                    <div style="width: 100%; height: 25px; background-color: rgba(255, 255, 255, 0);"></div>
+                    <div style="width: 100%; height: 25px; background-color: rgba(255, 255, 255, 0);"></div>
+                    <div style="width: 100%; height: 25px; background-color: rgba(255, 255, 255, 0.5);"></div>
+                    <div style="width: 100%; height: 25px; background-color: rgba(255, 255, 255, 0.7);"></div>
+                    <div style="width: 100%; height: 25px; background-color: rgba(255, 255, 255, 0.9);"></div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </body>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="https://www.youtube.com/iframe_api"></script>
+    <script type="text/javascript" src="js/Materialize.min.js"></script>
+    <script type="text/javascript" src="js/lyricData.js"></script>
+    <script type="text/javascript" src="js/uiManager.js?20"></script>
+    <script type="text/javascript">
+
+        var tick = 0;
+        var position = 0;
+        var interval = 0;
+        var data;
+        var pData;
+        var stoppable = true;
+
+        function play() {
+            if (interval) {
+                resume();
+                return;
+            }
+
+            ytPlayer.playVideo();
+
+
+            data = lyricData[position];
+
+            interval = setInterval(function() {
+
+                var curTime = ytPlayer.getCurrentTime();
+
+                if (data && data.time < curTime) {
+                    position++;
+
+                    data = lyricData[position];
+                    pData = lyricData[position - 1];
+
+                    lyricForm.animate({
+                        scrollTop: (position) * 50
+                    }, 250);
+                }
+
+                if (stoppable) {
+                    if (pData && pData.stop && pData.stop < curTime) {
+                        ytPlayer.pauseVideo();
+                    }
+                }
+            }, 10);
+        }
+
+        function play1() {
+            stoppable = true;
+            play();
+        }
+
+        function play2() {
+            lyricForm.animate({
+                scrollTop: 0
+            }, 250);
+            position = 0;
+            stoppable = false;
+            clearInterval(interval);
+            interval = null;
+            ytPlayer.seekTo(0);
+            play();
+        }
+
+        function resume() {
+            ytPlayer.playVideo();
+            pData.stop = undefined;
+        }
+
+        function replay() {
+            ytPlayer.seekTo(pData.time);
+            setTimeout(function() {
+                ytPlayer.playVideo();
+            }, 1000);
+        }
+
+        function showLyric() {
+            lyricLines.eq(position * 2 - 2).text(lyricData[position - 1].en[1]);
+        }
+
+        function get() {
+            Materialize.toast(ytPlayer.getCurrentTime(), 10000);
+        }
+
+        function p() {
+            ytPlayer.seekTo(ytPlayer.getCurrentTime() - 0.1);
+        }
+    </script>
+</html>

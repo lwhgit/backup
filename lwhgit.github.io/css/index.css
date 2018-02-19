@@ -1,0 +1,5 @@
+#bodyForm {
+  width: 1536px;
+  height: calc(100% - 64px);
+  margin: 0 auto;
+}

@@ -1,0 +1,19 @@
+.fileViewForm {
+  width: 1024px;
+  height: 96px;
+  margin: 0 auto 8px auto;
+  background-color: #FFFFFF;
+  box-shadow: 0px 1px 2px 0px #666666;
+  cursor: pointer;
+  transition: box-shadow 0.3s;
+}
+
+.fileViewForm:hover {
+  box-shadow: 0px 1px 8px 0px #666666;
+}
+
+#bodyForm {
+  width: 1536px;
+  height: calc(100% - 64px);
+  margin: 0 auto;
+}
