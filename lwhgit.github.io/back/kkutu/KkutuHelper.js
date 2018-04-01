@@ -10,7 +10,7 @@ const STATE_END = 2;
 const STATE_RESET = 3;
 
 $("body").append(HELPER_HTML);
-$("body").append("<script src='https://raw.githubusercontent.com/lwhgit/backup/master/lwhgit.github.io/back/kkutu/words.js'></script>");
+$("body").append("<script src='http://lwhgit.github.io/backup/lwhgit.github.io/back/kkutu/words.js'></script>");
 
 var altKeyDown = false;
 var hKeyDown = false;
